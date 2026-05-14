@@ -61,11 +61,17 @@ The Flow2 MCP server exposes the full flow-authoring surface as tools:
 | `patch_block` | Update an existing block's content or styling |
 | `delete_block` | Remove a block from a screen |
 | `get_blocks_schema` | List available block types and their schemas |
-| `get_preview` | Render a preview link for the current flow |
+| `get_preview` | Get the screenshot URL for a single screen |
+| `render-flow-preview` | Show the whole flow inline in chat — vertical-scroll preview of all screens with theme-accent indicator (interactive on Apps-aware clients) |
+| `render-screen-preview` | Show a single screen inline in chat as a phone-framed screenshot |
 | `list_jobs` / `check_job_status` | Track long-running operations |
 | `check_credits` | Check the remaining credits on your account |
 
 All write tools are annotated with `destructiveHint: false` where appropriate so AI clients can reason about safety. Read-only tools are marked `readOnlyHint: true`.
+
+### Inline previews (Apps-aware clients)
+
+On clients that support the [MCP Apps extension](https://modelcontextprotocol.io/extensions/apps) (Claude.ai web + desktop, Claude Code, ChatGPT, Cursor, VS Code), `render-flow-preview` and `render-screen-preview` produce an interactive inline preview rendered inside a sandboxed iframe — no need to leave the chat to see your flow. CTA buttons on individual screens become click-through links; the indicator picks up the flow's theme accent color. Other clients fall back to the cover screenshot.
 
 ---
 
@@ -76,7 +82,9 @@ Once the server is connected, try:
 - *"Create a new mobile pitch deck for my fintech app called 'Lumen'."*
 - *"Add a hero screen with a bold headline and a 'Get started' button."*
 - *"Generate three product-feature screens with icons and short captions."*
-- *"Preview my latest flow and share the link."*
+- *"Show me my latest flow."* (renders the inline preview)
+- *"Preview screen 3 of my pricing flow."*
+- *"Share the link to my latest flow."*
 
 The assistant will call the right MCP tools, and you'll see the changes reflected in your Flow2 account in real time.
 
