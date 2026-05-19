@@ -1,6 +1,6 @@
 # Flow2 MCP Server
 
-> Design mobile-first presentations — create, edit, preview, and publish from your AI assistant.
+> Design mobile-first presentations - create, edit, preview, and publish from your AI assistant.
 
 This is the official [Model Context Protocol](https://modelcontextprotocol.io) server for [Flow2](https://flow2.co). It lets AI assistants like Claude work with your Flow2 account directly: spin up new flows, add and edit screens, drop in blocks, preview the result, and publish — all from a chat prompt.
 
